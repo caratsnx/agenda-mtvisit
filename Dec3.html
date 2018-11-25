@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            Dec3
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- Enable all requests, inline styles, and eval() -->
+        <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready data:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+        <link href="files/resources/lib/theme/jqm/jqm.css" rel="stylesheet" />
+        <link href="files/resources/lib/theme/flat-ui/flat-ui.css" rel="stylesheet" />
+        <link href="files/resources/lib/jquerymobile/1.4.4/jquery.mobile.structure-1.4.4.css"
+        rel="stylesheet" />
+        <script type="text/javascript" src="files/resources/lib/underscore/underscore.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/store/json2.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery/jquery-2.1.1.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery/jquery-ajaxTransport.js">
+        </script>
+        <script type="text/javascript">
+                    $(document).bind("mobileinit", function()
+            {
+                if (navigator.userAgent.toLowerCase().indexOf("android") != -1)
+                {
+                    $.mobile.defaultPageTransition = 'none';
+                    $.mobile.defaultDialogTransition = 'none';
+                }
+                else if (navigator.userAgent.toLowerCase().indexOf("msie") != -1)
+                {
+                    $.mobile.allowCrossDomainPages = true;
+                    $.support.cors = true;
+                }
+                else if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g))
+                {
+                    $.mobile.hashListeningEnabled = false;
+                }
+            });
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquerymobile/1.4.4/jquery.mobile-1.4.4.js">
+        </script>
+        <script type="text/javascript" src="files/resources/js/mobilebase.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/event/customEventHandler.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/sha1.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/oauth.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/contexts.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/jquery.xml2json.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/q/q.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/EventEmitter.js/EventEmitter.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/tv4/tv4.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/localforage/dist/localforage.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/localforage/plugins/localforage-setitems/localforage-setitems.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/localforage/plugins/localforage-find/localforage-find.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/crypto-js-md5/crypto-js-md5.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/moment/moment.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/underscore-query/underscore-query.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/offline/offline.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/client-sdk.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/appery.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/component-manager.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/mapping-impl.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/entity-api.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/login.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/storage-api.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/get_target_platform.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/cordova.js">
+        </script>
+        <link href="files/resources/css/mobilebase.css" rel="stylesheet" type="text/css"
+        />
+        <script type="text/javascript" src="files/views/assets/js/services/model.js">
+        </script>
+        <script type="text/javascript" src="files/views/assets/js/services/service.js">
+        </script>
+    </head>
+    
+    <body>
+        <script language="JavaScript" type="text/javascript">
+        </script>
+        <div data-role="page" style="min-height:480px;" dsid="Dec3" id="Dec3" class="type-interior"
+        data-theme="f">
+            <!-- mobileheader1 -->
+            <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
+            data-theme="f" name="mobileheader1" id="Dec3_mobileheader1" class="Dec3_mobileheader1">
+                <h1 dsid="mobileheader1">
+                    Agenda
+                </h1>
+                <!-- mobilenavbar_6 -->
+                <div data-role="navbar" id="Dec3_mobilenavbar_6" name="mobilenavbar_6" dsid="mobilenavbar_6"
+                class="Dec3_mobilenavbar_6" data-theme="f" style="position: relative;">
+                    <ul>
+                        <!-- home_item -->
+                        <li>
+                            <a data-theme="f" data-icon="calendar" id="Dec3_home_item" dsid="home_item" name="home_item">
+                            26 Nov
+                            </a>
+                        </li>
+                        <!-- products_item -->
+                        <li>
+                            <a data-theme="f" data-icon="calendar" id="Dec3_products_item" dsid="products_item"
+                            name="products_item">
+                            27 Nov
+                            </a>
+                        </li>
+                        <!-- account_item -->
+                        <li>
+                            <a data-theme="f" data-icon="calendar" id="Dec3_account_item" dsid="account_item"
+                            name="account_item">
+                            28 Nov
+                            </a>
+                        </li>
+                        <!-- nov30 -->
+                        <li>
+                            <a data-theme="f" data-icon="calendar" id="Dec3_nov30" dsid="nov30" name="nov30">
+                            30 Nov
+                            </a>
+                        </li>
+                        <!-- mobilenavbaritem_16 -->
+                        <li>
+                            <a data-theme="f" class="ui-btn-active ui-state-persist" data-icon="calendar" id="Dec3_mobilenavbaritem_16"
+                            dsid="mobilenavbaritem_16" name="mobilenavbaritem_16">
+                            3 Dec
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- mobilecontainer1 -->
+            <div data-role="content" id="Dec3_mobilecontainer1" name="mobilecontainer1" class="Dec3_mobilecontainer1 ui-content"
+            dsid="mobilecontainer1" data-theme="f">
+                <link href="Dec3.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="Dec3.js">
+                </script>
+                <!-- mobileworkarea_10_24_32 -->
+                <div class="Dec3_mobileworkarea_10_24_32 Dec3_mobileworkarea_10_24_32">
+                    <!-- mobilecollapsblock_14_25_33 -->
+                    <div data-role="collapsible" id="Dec3_mobilecollapsblock_14_25_33" name="mobilecollapsblock_14_25_33"
+                    dsid="mobilecollapsblock_14_25_33" data-collapsed="true" data-theme="e" data-content-theme="f"
+                    data-iconpos='left' class="Dec3_mobilecollapsblock_14_25_33">
+                        <h3 id="Dec3_mobilecollapsblockheader_15_26_34" name="mobilecollapsblockheader_15_26_34"
+                        dsid="mobilecollapsblockheader_15_26_34">
+                            Morning
+                        </h3>
+                        <!-- mobilecollapsblock_34_45_59_60 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_59_60" name="mobilecollapsblock_34_45_59_60"
+                        dsid="mobilecollapsblock_34_45_59_60" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_59_60">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_60_61" name="mobilecollapsblockheader_35_46_60_61"
+                            dsid="mobilecollapsblockheader_35_46_60_61">
+                                08:30 Pickup from Hotel
+                            </h3>
+                            <!-- mobilegrid_37_48_62_63 -->
+                            <div class="Dec3_mobilegrid_37_48_62_63_wrapper" data-wrapper-for="mobilegrid_37_48_62_63">
+                                <table id="Dec3_mobilegrid_37_48_62_63" class="Dec3_mobilegrid_37_48_62_63" dsid="mobilegrid_37_48_62_63"
+                                name="mobilegrid_37_48_62_63" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="Dec3_mobilegrid_37_48_62_63_row_0">
+                                        <!-- mobilegridcell_38_49_63_64 -->
+                                        <td id="Dec3_mobilegridcell_38_49_63_64" name="mobilegridcell_38_49_63_64" class="Dec3_mobilegridcell_38_49_63_64"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_50_64_65 -->
+                                                <div name="mobilelabel_42_50_64_65" id="Dec3_mobilelabel_42_50_64_65" dsid="mobilelabel_42_50_64_65"
+                                                data-role="appery_label" class="Dec3_mobilelabel_42_50_64_65">
+                                                    Agenda
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_39_51_65_66 -->
+                                        <td id="Dec3_mobilegridcell_39_51_65_66" name="mobilegridcell_39_51_65_66" class="Dec3_mobilegridcell_39_51_65_66"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_55_66_67 -->
+                                                <div name="mobilelabel_55_66_67" id="Dec3_mobilelabel_55_66_67" dsid="mobilelabel_55_66_67"
+                                                data-role="appery_label" class="Dec3_mobilelabel_55_66_67">
+                                                    Pickup from Hotel and travel to YP ofc
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="Dec3_mobilegrid_37_48_62_63_row_1">
+                                        <!-- mobilegridcell_40_52_67_68 -->
+                                        <td id="Dec3_mobilegridcell_40_52_67_68" name="mobilegridcell_40_52_67_68" class="Dec3_mobilegridcell_40_52_67_68"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_43_53_68_69 -->
+                                                <div name="mobilelabel_43_53_68_69" id="Dec3_mobilelabel_43_53_68_69" dsid="mobilelabel_43_53_68_69"
+                                                data-role="appery_label" class="Dec3_mobilelabel_43_53_68_69">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_41_54_69_70 -->
+                                        <td id="Dec3_mobilegridcell_41_54_69_70" name="mobilegridcell_41_54_69_70" class="Dec3_mobilegridcell_41_54_69_70"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_56_70_71 -->
+                                                <div name="mobilelabel_56_70_71" id="Dec3_mobilelabel_56_70_71" dsid="mobilelabel_56_70_71"
+                                                data-role="appery_label" class="Dec3_mobilelabel_56_70_71">
+                                                    TCS Cabs
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilecollapsblock_34_45_72_73 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_72_73" name="mobilecollapsblock_34_45_72_73"
+                        dsid="mobilecollapsblock_34_45_72_73" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_72_73">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_73_74" name="mobilecollapsblockheader_35_46_73_74"
+                            dsid="mobilecollapsblockheader_35_46_73_74">
+                                09:30 - Recap of previous day
+                            </h3>
+                            <!-- mobilegrid_37_48_75_76 -->
+                            <div class="Dec3_mobilegrid_37_48_75_76_wrapper" data-wrapper-for="mobilegrid_37_48_75_76">
+                                <table id="Dec3_mobilegrid_37_48_75_76" class="Dec3_mobilegrid_37_48_75_76" dsid="mobilegrid_37_48_75_76"
+                                name="mobilegrid_37_48_75_76" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="Dec3_mobilegrid_37_48_75_76_row_0">
+                                        <!-- mobilegridcell_38_49_76_77 -->
+                                        <td id="Dec3_mobilegridcell_38_49_76_77" name="mobilegridcell_38_49_76_77" class="Dec3_mobilegridcell_38_49_76_77"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_50_77_78 -->
+                                                <div name="mobilelabel_42_50_77_78" id="Dec3_mobilelabel_42_50_77_78" dsid="mobilelabel_42_50_77_78"
+                                                data-role="appery_label" class="Dec3_mobilelabel_42_50_77_78">
+                                                    Agenda
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_39_51_78_79 -->
+                                        <td id="Dec3_mobilegridcell_39_51_78_79" name="mobilegridcell_39_51_78_79" class="Dec3_mobilegridcell_39_51_78_79"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_55_79_80 -->
+                                                <div name="mobilelabel_55_79_80" id="Dec3_mobilelabel_55_79_80" dsid="mobilelabel_55_79_80"
+                                                data-role="appery_label" class="Dec3_mobilelabel_55_79_80">
+                                                    Recap of previous day
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="Dec3_mobilegrid_37_48_75_76_row_1">
+                                        <!-- mobilegridcell_40_52_80_81 -->
+                                        <td id="Dec3_mobilegridcell_40_52_80_81" name="mobilegridcell_40_52_80_81" class="Dec3_mobilegridcell_40_52_80_81"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_43_53_81_82 -->
+                                                <div name="mobilelabel_43_53_81_82" id="Dec3_mobilelabel_43_53_81_82" dsid="mobilelabel_43_53_81_82"
+                                                data-role="appery_label" class="Dec3_mobilelabel_43_53_81_82">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_41_54_82_83 -->
+                                        <td id="Dec3_mobilegridcell_41_54_82_83" name="mobilegridcell_41_54_82_83" class="Dec3_mobilegridcell_41_54_82_83"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_56_83_84 -->
+                                                <div name="mobilelabel_56_83_84" id="Dec3_mobilelabel_56_83_84" dsid="mobilelabel_56_83_84"
+                                                data-role="appery_label" class="Dec3_mobilelabel_56_83_84">
+                                                    TCS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilecollapsblock_34_45_85_86 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_85_86" name="mobilecollapsblock_34_45_85_86"
+                        dsid="mobilecollapsblock_34_45_85_86" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_85_86">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_86_87" name="mobilecollapsblockheader_35_46_86_87"
+                            dsid="mobilecollapsblockheader_35_46_86_87">
+                                10:00 - IT Ambitions for S&amp;D and IFS
+                            </h3>
+                            <!-- mobilegrid_37_48_88_89 -->
+                            <div class="Dec3_mobilegrid_37_48_88_89_wrapper" data-wrapper-for="mobilegrid_37_48_88_89">
+                                <table id="Dec3_mobilegrid_37_48_88_89" class="Dec3_mobilegrid_37_48_88_89" dsid="mobilegrid_37_48_88_89"
+                                name="mobilegrid_37_48_88_89" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="Dec3_mobilegrid_37_48_88_89_row_0">
+                                        <!-- mobilegridcell_38_49_89_90 -->
+                                        <td id="Dec3_mobilegridcell_38_49_89_90" name="mobilegridcell_38_49_89_90" class="Dec3_mobilegridcell_38_49_89_90"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_50_90_91 -->
+                                                <div name="mobilelabel_42_50_90_91" id="Dec3_mobilelabel_42_50_90_91" dsid="mobilelabel_42_50_90_91"
+                                                data-role="appery_label" class="Dec3_mobilelabel_42_50_90_91">
+                                                    Agenda
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_39_51_91_92 -->
+                                        <td id="Dec3_mobilegridcell_39_51_91_92" name="mobilegridcell_39_51_91_92" class="Dec3_mobilegridcell_39_51_91_92"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_55_92_93 -->
+                                                <div name="mobilelabel_55_92_93" id="Dec3_mobilelabel_55_92_93" dsid="mobilelabel_55_92_93"
+                                                data-role="appery_label" class="Dec3_mobilelabel_55_92_93">
+                                                    IT Ambitions for S&amp;D and IFS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="Dec3_mobilegrid_37_48_88_89_row_1">
+                                        <!-- mobilegridcell_40_52_93_94 -->
+                                        <td id="Dec3_mobilegridcell_40_52_93_94" name="mobilegridcell_40_52_93_94" class="Dec3_mobilegridcell_40_52_93_94"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_43_53_94_95 -->
+                                                <div name="mobilelabel_43_53_94_95" id="Dec3_mobilelabel_43_53_94_95" dsid="mobilelabel_43_53_94_95"
+                                                data-role="appery_label" class="Dec3_mobilelabel_43_53_94_95">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_41_54_95_96 -->
+                                        <td id="Dec3_mobilegridcell_41_54_95_96" name="mobilegridcell_41_54_95_96" class="Dec3_mobilegridcell_41_54_95_96"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_56_96_97 -->
+                                                <div name="mobilelabel_56_96_97" id="Dec3_mobilelabel_56_96_97" dsid="mobilelabel_56_96_97"
+                                                data-role="appery_label" class="Dec3_mobilelabel_56_96_97">
+                                                    Bart
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilecollapsblock_34_45_111_112 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_111_112" name="mobilecollapsblock_34_45_111_112"
+                        dsid="mobilecollapsblock_34_45_111_112" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_111_112">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_112_113" name="mobilecollapsblockheader_35_46_112_113"
+                            dsid="mobilecollapsblockheader_35_46_112_113">
+                                11:30 - Break
+                            </h3>
+                        </div>
+                        <!-- mobilecollapsblock_34_45_124_125 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_124_125" name="mobilecollapsblock_34_45_124_125"
+                        dsid="mobilecollapsblock_34_45_124_125" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_124_125">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_125_126" name="mobilecollapsblockheader_35_46_125_126"
+                            dsid="mobilecollapsblockheader_35_46_125_126">
+                                11:45 - External Session/Bi-LA with team
+                            </h3>
+                            <!-- mobilegrid_37_48_127_128 -->
+                            <div class="Dec3_mobilegrid_37_48_127_128_wrapper" data-wrapper-for="mobilegrid_37_48_127_128">
+                                <table id="Dec3_mobilegrid_37_48_127_128" class="Dec3_mobilegrid_37_48_127_128"
+                                dsid="mobilegrid_37_48_127_128" name="mobilegrid_37_48_127_128" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="Dec3_mobilegrid_37_48_127_128_row_0">
+                                        <!-- mobilegridcell_38_49_128_129 -->
+                                        <td id="Dec3_mobilegridcell_38_49_128_129" name="mobilegridcell_38_49_128_129" class="Dec3_mobilegridcell_38_49_128_129"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_50_129_130 -->
+                                                <div name="mobilelabel_42_50_129_130" id="Dec3_mobilelabel_42_50_129_130" dsid="mobilelabel_42_50_129_130"
+                                                data-role="appery_label" class="Dec3_mobilelabel_42_50_129_130">
+                                                    Agenda
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_39_51_130_131 -->
+                                        <td id="Dec3_mobilegridcell_39_51_130_131" name="mobilegridcell_39_51_130_131" class="Dec3_mobilegridcell_39_51_130_131"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_55_131_132 -->
+                                                <div name="mobilelabel_55_131_132" id="Dec3_mobilelabel_55_131_132" dsid="mobilelabel_55_131_132"
+                                                data-role="appery_label" class="Dec3_mobilelabel_55_131_132">
+                                                    External Session/Bi-LA with team
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="Dec3_mobilegrid_37_48_127_128_row_1">
+                                        <!-- mobilegridcell_40_52_132_133 -->
+                                        <td id="Dec3_mobilegridcell_40_52_132_133" name="mobilegridcell_40_52_132_133" class="Dec3_mobilegridcell_40_52_132_133"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_43_53_133_134 -->
+                                                <div name="mobilelabel_43_53_133_134" id="Dec3_mobilelabel_43_53_133_134" dsid="mobilelabel_43_53_133_134"
+                                                data-role="appery_label" class="Dec3_mobilelabel_43_53_133_134">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_41_54_134_135 -->
+                                        <td id="Dec3_mobilegridcell_41_54_134_135" name="mobilegridcell_41_54_134_135" class="Dec3_mobilegridcell_41_54_134_135"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_56_135_136 -->
+                                                <div name="mobilelabel_56_135_136" id="Dec3_mobilelabel_56_135_136" dsid="mobilelabel_56_135_136"
+                                                data-role="appery_label" class="Dec3_mobilelabel_56_135_136">
+                                                    TCS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- mobilecollapsblock_17_28_137 -->
+                    <div data-role="collapsible" id="Dec3_mobilecollapsblock_17_28_137" name="mobilecollapsblock_17_28_137"
+                    dsid="mobilecollapsblock_17_28_137" data-collapsed="true" data-theme="e" data-content-theme="f"
+                    data-iconpos='left' class="Dec3_mobilecollapsblock_17_28_137">
+                        <h3 id="Dec3_mobilecollapsblockheader_18_29_138" name="mobilecollapsblockheader_18_29_138"
+                        dsid="mobilecollapsblockheader_18_29_138">
+                            Afternoon
+                        </h3>
+                        <!-- mobilecollapsblock_34_45_137_140 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_137_140" name="mobilecollapsblock_34_45_137_140"
+                        dsid="mobilecollapsblock_34_45_137_140" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_137_140">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_138_141" name="mobilecollapsblockheader_35_46_138_141"
+                            dsid="mobilecollapsblockheader_35_46_138_141">
+                                12:30 - Lunch
+                            </h3>
+                            <!-- mobilegrid_37_48_140_143 -->
+                            <div class="Dec3_mobilegrid_37_48_140_143_wrapper" data-wrapper-for="mobilegrid_37_48_140_143">
+                                <table id="Dec3_mobilegrid_37_48_140_143" class="Dec3_mobilegrid_37_48_140_143"
+                                dsid="mobilegrid_37_48_140_143" name="mobilegrid_37_48_140_143" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="Dec3_mobilegrid_37_48_140_143_row_0">
+                                        <!-- mobilegridcell_38_49_141_144 -->
+                                        <td id="Dec3_mobilegridcell_38_49_141_144" name="mobilegridcell_38_49_141_144" class="Dec3_mobilegridcell_38_49_141_144"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_50_142_145 -->
+                                                <div name="mobilelabel_42_50_142_145" id="Dec3_mobilelabel_42_50_142_145" dsid="mobilelabel_42_50_142_145"
+                                                data-role="appery_label" class="Dec3_mobilelabel_42_50_142_145">
+                                                    Agenda
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_39_51_143_146 -->
+                                        <td id="Dec3_mobilegridcell_39_51_143_146" name="mobilegridcell_39_51_143_146" class="Dec3_mobilegridcell_39_51_143_146"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_55_144_147 -->
+                                                <div name="mobilelabel_55_144_147" id="Dec3_mobilelabel_55_144_147" dsid="mobilelabel_55_144_147"
+                                                data-role="appery_label" class="Dec3_mobilelabel_55_144_147">
+                                                    Lunch
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="Dec3_mobilegrid_37_48_140_143_row_1">
+                                        <!-- mobilegridcell_40_52_145_148 -->
+                                        <td id="Dec3_mobilegridcell_40_52_145_148" name="mobilegridcell_40_52_145_148" class="Dec3_mobilegridcell_40_52_145_148"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_43_53_146_149 -->
+                                                <div name="mobilelabel_43_53_146_149" id="Dec3_mobilelabel_43_53_146_149" dsid="mobilelabel_43_53_146_149"
+                                                data-role="appery_label" class="Dec3_mobilelabel_43_53_146_149">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_41_54_147_150 -->
+                                        <td id="Dec3_mobilegridcell_41_54_147_150" name="mobilegridcell_41_54_147_150" class="Dec3_mobilegridcell_41_54_147_150"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_56_148_151 -->
+                                                <div name="mobilelabel_56_148_151" id="Dec3_mobilelabel_56_148_151" dsid="mobilelabel_56_148_151"
+                                                data-role="appery_label" class="Dec3_mobilelabel_56_148_151">
+                                                    TCS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilecollapsblock_34_45_150_152 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_150_152" name="mobilecollapsblock_34_45_150_152"
+                        dsid="mobilecollapsblock_34_45_150_152" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_150_152">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_151_153" name="mobilecollapsblockheader_35_46_151_153"
+                            dsid="mobilecollapsblockheader_35_46_151_153">
+                                13:30 - Work with team
+                            </h3>
+                            <!-- mobilegrid_37_48_153_155 -->
+                            <div class="Dec3_mobilegrid_37_48_153_155_wrapper" data-wrapper-for="mobilegrid_37_48_153_155">
+                                <table id="Dec3_mobilegrid_37_48_153_155" class="Dec3_mobilegrid_37_48_153_155"
+                                dsid="mobilegrid_37_48_153_155" name="mobilegrid_37_48_153_155" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="Dec3_mobilegrid_37_48_153_155_row_0">
+                                        <!-- mobilegridcell_38_49_154_156 -->
+                                        <td id="Dec3_mobilegridcell_38_49_154_156" name="mobilegridcell_38_49_154_156" class="Dec3_mobilegridcell_38_49_154_156"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_50_155_157 -->
+                                                <div name="mobilelabel_42_50_155_157" id="Dec3_mobilelabel_42_50_155_157" dsid="mobilelabel_42_50_155_157"
+                                                data-role="appery_label" class="Dec3_mobilelabel_42_50_155_157">
+                                                    Agenda
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_39_51_156_158 -->
+                                        <td id="Dec3_mobilegridcell_39_51_156_158" name="mobilegridcell_39_51_156_158" class="Dec3_mobilegridcell_39_51_156_158"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_55_157_159 -->
+                                                <div name="mobilelabel_55_157_159" id="Dec3_mobilelabel_55_157_159" dsid="mobilelabel_55_157_159"
+                                                data-role="appery_label" class="Dec3_mobilelabel_55_157_159">
+                                                    Work with team
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="Dec3_mobilegrid_37_48_153_155_row_1">
+                                        <!-- mobilegridcell_40_52_158_160 -->
+                                        <td id="Dec3_mobilegridcell_40_52_158_160" name="mobilegridcell_40_52_158_160" class="Dec3_mobilegridcell_40_52_158_160"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_43_53_159_161 -->
+                                                <div name="mobilelabel_43_53_159_161" id="Dec3_mobilelabel_43_53_159_161" dsid="mobilelabel_43_53_159_161"
+                                                data-role="appery_label" class="Dec3_mobilelabel_43_53_159_161">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_41_54_160_162 -->
+                                        <td id="Dec3_mobilegridcell_41_54_160_162" name="mobilegridcell_41_54_160_162" class="Dec3_mobilegridcell_41_54_160_162"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_56_161_163 -->
+                                                <div name="mobilelabel_56_161_163" id="Dec3_mobilelabel_56_161_163" dsid="mobilelabel_56_161_163"
+                                                data-role="appery_label" class="Dec3_mobilelabel_56_161_163">
+                                                    TCS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilecollapsblock_34_45_163_164 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_163_164" name="mobilecollapsblock_34_45_163_164"
+                        dsid="mobilecollapsblock_34_45_163_164" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_163_164">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_164_165" name="mobilecollapsblockheader_35_46_164_165"
+                            dsid="mobilecollapsblockheader_35_46_164_165">
+                                16:30 - Break
+                            </h3>
+                        </div>
+                        <!-- mobilecollapsblock_34_45_176_177 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_176_177" name="mobilecollapsblock_34_45_176_177"
+                        dsid="mobilecollapsblock_34_45_176_177" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_176_177">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_177_178" name="mobilecollapsblockheader_35_46_177_178"
+                            dsid="mobilecollapsblockheader_35_46_177_178">
+                                16:45 - Bi-LA with team
+                            </h3>
+                            <!-- mobilegrid_37_48_179_180 -->
+                            <div class="Dec3_mobilegrid_37_48_179_180_wrapper" data-wrapper-for="mobilegrid_37_48_179_180">
+                                <table id="Dec3_mobilegrid_37_48_179_180" class="Dec3_mobilegrid_37_48_179_180"
+                                dsid="mobilegrid_37_48_179_180" name="mobilegrid_37_48_179_180" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="Dec3_mobilegrid_37_48_179_180_row_0">
+                                        <!-- mobilegridcell_38_49_180_181 -->
+                                        <td id="Dec3_mobilegridcell_38_49_180_181" name="mobilegridcell_38_49_180_181" class="Dec3_mobilegridcell_38_49_180_181"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_50_181_182 -->
+                                                <div name="mobilelabel_42_50_181_182" id="Dec3_mobilelabel_42_50_181_182" dsid="mobilelabel_42_50_181_182"
+                                                data-role="appery_label" class="Dec3_mobilelabel_42_50_181_182">
+                                                    Agenda
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_39_51_182_183 -->
+                                        <td id="Dec3_mobilegridcell_39_51_182_183" name="mobilegridcell_39_51_182_183" class="Dec3_mobilegridcell_39_51_182_183"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_55_183_184 -->
+                                                <div name="mobilelabel_55_183_184" id="Dec3_mobilelabel_55_183_184" dsid="mobilelabel_55_183_184"
+                                                data-role="appery_label" class="Dec3_mobilelabel_55_183_184">
+                                                    Bi-LA with team
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="Dec3_mobilegrid_37_48_179_180_row_1">
+                                        <!-- mobilegridcell_40_52_184_185 -->
+                                        <td id="Dec3_mobilegridcell_40_52_184_185" name="mobilegridcell_40_52_184_185" class="Dec3_mobilegridcell_40_52_184_185"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_43_53_185_186 -->
+                                                <div name="mobilelabel_43_53_185_186" id="Dec3_mobilelabel_43_53_185_186" dsid="mobilelabel_43_53_185_186"
+                                                data-role="appery_label" class="Dec3_mobilelabel_43_53_185_186">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_41_54_186_187 -->
+                                        <td id="Dec3_mobilegridcell_41_54_186_187" name="mobilegridcell_41_54_186_187" class="Dec3_mobilegridcell_41_54_186_187"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_56_187_188 -->
+                                                <div name="mobilelabel_56_187_188" id="Dec3_mobilelabel_56_187_188" dsid="mobilelabel_56_187_188"
+                                                data-role="appery_label" class="Dec3_mobilelabel_56_187_188">
+                                                    Bart + RBP Team
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilecollapsblock_34_45_217 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_217" name="mobilecollapsblock_34_45_217"
+                        dsid="mobilecollapsblock_34_45_217" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_217">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_218" name="mobilecollapsblockheader_35_46_218"
+                            dsid="mobilecollapsblockheader_35_46_218">
+                                17:30 - Day Wrap up
+                            </h3>
+                            <!-- mobilegrid_37_48_220 -->
+                            <div class="Dec3_mobilegrid_37_48_220_wrapper" data-wrapper-for="mobilegrid_37_48_220">
+                                <table id="Dec3_mobilegrid_37_48_220" class="Dec3_mobilegrid_37_48_220" dsid="mobilegrid_37_48_220"
+                                name="mobilegrid_37_48_220" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="Dec3_mobilegrid_37_48_220_row_0">
+                                        <!-- mobilegridcell_38_49_221 -->
+                                        <td id="Dec3_mobilegridcell_38_49_221" name="mobilegridcell_38_49_221" class="Dec3_mobilegridcell_38_49_221"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_50_222 -->
+                                                <div name="mobilelabel_42_50_222" id="Dec3_mobilelabel_42_50_222" dsid="mobilelabel_42_50_222"
+                                                data-role="appery_label" class="Dec3_mobilelabel_42_50_222">
+                                                    Agenda
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_39_51_223 -->
+                                        <td id="Dec3_mobilegridcell_39_51_223" name="mobilegridcell_39_51_223" class="Dec3_mobilegridcell_39_51_223"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_55_224 -->
+                                                <div name="mobilelabel_55_224" id="Dec3_mobilelabel_55_224" dsid="mobilelabel_55_224"
+                                                data-role="appery_label" class="Dec3_mobilelabel_55_224">
+                                                    Day wrap up
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="Dec3_mobilegrid_37_48_220_row_1">
+                                        <!-- mobilegridcell_40_52_225 -->
+                                        <td id="Dec3_mobilegridcell_40_52_225" name="mobilegridcell_40_52_225" class="Dec3_mobilegridcell_40_52_225"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_43_53_226 -->
+                                                <div name="mobilelabel_43_53_226" id="Dec3_mobilelabel_43_53_226" dsid="mobilelabel_43_53_226"
+                                                data-role="appery_label" class="Dec3_mobilelabel_43_53_226">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_41_54_227 -->
+                                        <td id="Dec3_mobilegridcell_41_54_227" name="mobilegridcell_41_54_227" class="Dec3_mobilegridcell_41_54_227"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_56_228 -->
+                                                <div name="mobilelabel_56_228" id="Dec3_mobilelabel_56_228" dsid="mobilelabel_56_228"
+                                                data-role="appery_label" class="Dec3_mobilelabel_56_228">
+                                                    TCS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- mobilecollapsblock_20_31_189 -->
+                    <div data-role="collapsible" id="Dec3_mobilecollapsblock_20_31_189" name="mobilecollapsblock_20_31_189"
+                    dsid="mobilecollapsblock_20_31_189" data-collapsed="true" data-theme="e" data-content-theme="f"
+                    data-iconpos='left' class="Dec3_mobilecollapsblock_20_31_189">
+                        <h3 id="Dec3_mobilecollapsblockheader_21_32_190" name="mobilecollapsblockheader_21_32_190"
+                        dsid="mobilecollapsblockheader_21_32_190">
+                            Evening
+                        </h3>
+                        <!-- mobilecollapsblock_34_45_202_204 -->
+                        <div data-role="collapsible" id="Dec3_mobilecollapsblock_34_45_202_204" name="mobilecollapsblock_34_45_202_204"
+                        dsid="mobilecollapsblock_34_45_202_204" data-collapsed="true" data-theme="b" data-content-theme="f"
+                        data-iconpos='left' class="Dec3_mobilecollapsblock_34_45_202_204">
+                            <h3 id="Dec3_mobilecollapsblockheader_35_46_203_205" name="mobilecollapsblockheader_35_46_203_205"
+                            dsid="mobilecollapsblockheader_35_46_203_205">
+                                18:00 Day wrap up and travel back to Hotel
+                            </h3>
+                            <!-- mobilegrid_37_48_205_207 -->
+                            <div class="Dec3_mobilegrid_37_48_205_207_wrapper" data-wrapper-for="mobilegrid_37_48_205_207">
+                                <table id="Dec3_mobilegrid_37_48_205_207" class="Dec3_mobilegrid_37_48_205_207"
+                                dsid="mobilegrid_37_48_205_207" name="mobilegrid_37_48_205_207" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="Dec3_mobilegrid_37_48_205_207_row_0">
+                                        <!-- mobilegridcell_38_49_206_208 -->
+                                        <td id="Dec3_mobilegridcell_38_49_206_208" name="mobilegridcell_38_49_206_208" class="Dec3_mobilegridcell_38_49_206_208"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_50_207_209 -->
+                                                <div name="mobilelabel_42_50_207_209" id="Dec3_mobilelabel_42_50_207_209" dsid="mobilelabel_42_50_207_209"
+                                                data-role="appery_label" class="Dec3_mobilelabel_42_50_207_209">
+                                                    Agenda
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_39_51_208_210 -->
+                                        <td id="Dec3_mobilegridcell_39_51_208_210" name="mobilegridcell_39_51_208_210" class="Dec3_mobilegridcell_39_51_208_210"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_55_209_211 -->
+                                                <div name="mobilelabel_55_209_211" id="Dec3_mobilelabel_55_209_211" dsid="mobilelabel_55_209_211"
+                                                data-role="appery_label" class="Dec3_mobilelabel_55_209_211">
+                                                    Travel Back to hotel
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="Dec3_mobilegrid_37_48_205_207_row_1">
+                                        <!-- mobilegridcell_40_52_210_212 -->
+                                        <td id="Dec3_mobilegridcell_40_52_210_212" name="mobilegridcell_40_52_210_212" class="Dec3_mobilegridcell_40_52_210_212"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_43_53_211_213 -->
+                                                <div name="mobilelabel_43_53_211_213" id="Dec3_mobilelabel_43_53_211_213" dsid="mobilelabel_43_53_211_213"
+                                                data-role="appery_label" class="Dec3_mobilelabel_43_53_211_213">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_41_54_212_214 -->
+                                        <td id="Dec3_mobilegridcell_41_54_212_214" name="mobilegridcell_41_54_212_214" class="Dec3_mobilegridcell_41_54_212_214"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_56_213_215 -->
+                                                <div name="mobilelabel_56_213_215" id="Dec3_mobilelabel_56_213_215" dsid="mobilelabel_56_213_215"
+                                                data-role="appery_label" class="Dec3_mobilelabel_56_213_215">
+                                                    TCS Cabs
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mobilefooter1 -->
+            <div data-role="footer" data-position="fixed" class="Dec3_mobilefooter1" name="mobilefooter1"
+            dsid="mobilefooter1" id="Dec3_mobilefooter1" data-theme="f">
+            </div>
+        </div>
+    </body>
+
+</html>
